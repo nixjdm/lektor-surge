@@ -17,4 +17,10 @@ class SurgePlugin(Plugin):
     description = u'Publishes your lektor site with surge.sh.'
 
     def on_setup_env(self, **extra):
-        self.env.add_publisher('surge', SurgePublisher)
+        try:
+            # Lektor 2.0+.
+            self.env.add_publisher('surge', SurgePublisher)
+        except AttributeError:
+            # Lektor 1.0.
+            from lektor.publisher import publishers
+            publishers['surge'] = SurgePublisher
