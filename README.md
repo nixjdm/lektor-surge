@@ -25,7 +25,7 @@ To force all traffic to HTTPS, update your `.lektorproject` file:
 
 ```ini
 [servers.surge]
-target = surge:https://my-domain.com
+target = surge+https:my-domain.com
 ```
 
 For more information, see the [Surge guide to HTTPS](https://surge.sh/help/using-https-by-default).
