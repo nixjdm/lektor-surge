@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
-import subprocess
-
 from lektor.pluginsystem import Plugin
-from lektor.publisher import Publisher
+from lektor.publisher import Publisher, Command
 
 
 class SurgePublisher(Publisher):
@@ -12,8 +10,8 @@ class SurgePublisher(Publisher):
         else:
             url = target_url.path
 
-        yield "Publishing to Surge..."
-        subprocess.check_call(['surge', '-p', self.output_path, url])
+        for line in Command(['surge', '-p', self.output_path, url]):
+            yield line
 
 
 class SurgePlugin(Plugin):
