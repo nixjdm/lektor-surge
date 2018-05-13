@@ -15,8 +15,8 @@ class SurgePublisher(Publisher):
 
 
 class SurgePlugin(Plugin):
-    name = u'surge'
-    description = u'Publishes your lektor site with surge.sh.'
+    name = u'Surge'
+    description = u'Lektor plugin to publish your site to surge.sh'
 
     def on_setup_env(self, **extra):
         for scheme in ('surge', 'surge+https'):
